@@ -2,5 +2,15 @@
   "imports": {
     "@hono/hono": "jsr:@hono/hono@^4.7.4",
     "@opentelemetry/api": "npm:@opentelemetry/api@^1.9.0"
+  },
+  "tasks": {
+    "serve-gateway": {
+      "description": "Serve the gateway service",
+      "command": "OTEL_SERVICE_NAME=gateway OTEL_DENO=true OTEL_DENO_CONSOLE=capture deno run --unstable-otel -A --watch gateway.ts "
+    },
+    "serve-api": {
+      "description": "Serve the api service",
+      "command": "OTEL_SERVICE_NAME=weather-api OTEL_DENO=true OTEL_DENO_CONSOLE=capture deno run --unstable-otel -A --watch weather.ts "
+    }
   }
 }
